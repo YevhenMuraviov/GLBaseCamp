@@ -1,7 +1,7 @@
 import re
 
 
-def count_holes_in_line_with_number(line):
+def count_holes(line):
     # gets number from a line and counts holes in it
     # returns integer with quantity of holes or string 'error' if failed
 
@@ -31,4 +31,4 @@ def count_holes_in_line_with_number(line):
 
 if __name__ == '__main__':
     check_line = 'abfkjbs df1234567890leahfroi,&^%orh'
-    print(count_holes_in_line_with_number(check_line))
+    print(count_holes(check_line))
