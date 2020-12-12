@@ -5,7 +5,7 @@ def count_holes(line):
     # gets number from a line and counts holes in it
     # returns integer with quantity of holes or string 'error' if failed
 
-    regexp = '^\D*(\d+)[^\.]\D*$'
+    regexp = '^[-]?(\d+)$'
     one_hole_numbers = ('4690')
     count = 0
     line_type = type(line)
@@ -14,7 +14,6 @@ def count_holes(line):
         line = str(line)
     elif line_type != str:
         return('error')
-
     parsing_result = re.search(regexp, line)
 
     if parsing_result:
@@ -22,13 +21,14 @@ def count_holes(line):
     else:
         return('error')
 
-    for number in one_hole_numbers:
-        count += line.count(number)
+    for hole_number in one_hole_numbers:
+        count += number.count(hole_number)
 
-    count += line.count('8') * 2
+    count += number.count('8') * 2
     return(count)
 
 
 if __name__ == '__main__':
-    check_line = 'abfkjbs df1234567890leahfroi,&^%orh'
+    check_line = '-0001234567890123'
     print(count_holes(check_line))
+
